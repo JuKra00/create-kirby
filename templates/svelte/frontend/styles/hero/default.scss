@@ -1,0 +1,8 @@
+.hero {
+  @include cssvar(hero-background, #fff);
+  background-color: cssvar(hero-background);
+  padding: 2em;
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+}

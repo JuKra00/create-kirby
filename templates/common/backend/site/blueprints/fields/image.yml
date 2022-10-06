@@ -1,0 +1,5 @@
+label: Bild
+type: files
+uploads: image
+multiple: false
+query: page.images.filterBy('template', 'image')

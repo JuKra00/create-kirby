@@ -1,0 +1,5 @@
+type: group
+fields:
+  headline:
+    extends: fields/writer
+    label: Headline

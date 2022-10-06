@@ -1,0 +1,5 @@
+label: Video
+type: files
+uploads: video
+multiple: false
+query: page.video.filterBy('template', 'video')

@@ -1,0 +1,47 @@
+title: Site
+tabs:
+  dashboard:
+    label: Dashboard
+    icon: dashboard
+    sections:
+      mainpages:
+        headline: Haupt-Navigation
+        type: pages
+        layout: cards
+        size: tiny
+        text: '{{ page.title }}'
+        status: listed
+        image:
+          cover: true
+          query: page.heroimage.toFile
+          ratio: 16/9
+      footernavpages:
+        type: fields
+        fields:
+          footernav:
+            label: Footer-Navigation
+            type: pages
+            help: Die Footer-Navigation befindet sich ganz am Ende jeder Seite.
+            width: 1/2
+            image: false
+      pages:
+        headline: Weitere öffentlich erreichbare Seiten
+        type: pages
+        status: unlisted
+        sortBy: title
+        template:
+          - home
+          - default
+          - error
+          - thanks
+        image: false
+      drafts:
+        headline: Entwürfe
+        type: pages
+        status: draft
+        sortBy: title
+        template:
+          - default
+        image: false
+  company: tabs/company
+  settings: tabs/settings

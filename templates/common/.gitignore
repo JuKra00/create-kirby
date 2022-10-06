@@ -1,0 +1,32 @@
+# OSX
+.DS_Store
+
+# Env
+.env
+
+# Frontend
+node_modules/
+/www/frontend/
+
+# Kirby
+.lock
+kirby
+vendor
+
+# Site
+backend/site/plugins/*
+backend/site/cache/*
+backend/site/sessions/*
+backend/site/config/.license
+
+# Media
+/www/media/*
+!/www/media/index.html
+
+# Volumes
+/volumes/accounts/*
+!/volumes/accounts/.gitkeep
+/volumes/logs/*
+!/volumes/logs/.gitkeep
+/volumes/license/*
+!/volumes/license/.gitkeep

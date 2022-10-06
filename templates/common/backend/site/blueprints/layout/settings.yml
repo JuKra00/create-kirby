@@ -1,0 +1,46 @@
+
+  fields:
+    padding:
+      label: Abstand
+      help: Hier können Sie die Abständ der Sektion zu anderen Seiteninhalten verändern.
+      type: select
+      options:
+        'py-0': 'Kein Abstand'
+        'pb-0': 'Kein Abstand unten'
+        'pt-0': 'Kein Abstand oben'
+        'is-medium': 'Etwas mehr Abstand'
+        'is-large': 'Viel Abstand'
+    background:
+      label: Hintergrund
+      help: Hier können Sie den Hintergrund der Sektion verändern.
+      type: toggles
+      default: ''
+      options:
+        '' : Ohne
+        'is-half' : Hälfte unten blau
+    columnsClass:
+      label: Besondere Einstellungen
+      help: Hier können besondere Einstellungen für eine Sektion getroffen werden.
+      type: select
+      options:
+        'is-top': 'Spalten oben ausrichten'
+        'is-vcentered': 'Spalten mittig ausrichten'
+        'is-bottom': 'Spalten unten ausrichten'
+        'has-text-centered': 'Text mittig ausrichten'
+        'has-text-right': 'Text rechts ausrichten'
+        'columns is-variable is-8': 'Breite Spaltenabstände'
+    containerClass:
+      label: Inhaltsbreite
+      help: Hier bestimmen Sie die Breite des Inhalts.
+      type: select
+      default: ''
+      options:
+        '': 'Standard Breite'
+        'is-fluid': 'Volle Breite'
+        'is-fluid px-0': 'Volle Breite + keine vertikalen Abstände'
+    sectionClass:
+      label: Inhaltsabstände
+      type: select
+      default: ''
+      options:
+        'px-0': 'Keine seitlichen Abstände'

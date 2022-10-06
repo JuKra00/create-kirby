@@ -1,0 +1,4 @@
+label: Medien
+type: group
+fieldsets:
+  - image

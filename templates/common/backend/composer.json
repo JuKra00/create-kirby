@@ -1,0 +1,22 @@
+{
+  "type": "project",
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://composer.agentur-fahrenheit.de/"
+    }
+  ],
+  "require": {
+    "php": ">=8.0",
+    "getkirby/cms": "^3.7",
+    "vlucas/phpdotenv": "^5.4",
+    "jukra00/kirby-simple-vite": "^0.1.4",
+    "bnomei/kirby3-robots-txt": "^1.5"
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "allow-plugins": {
+        "getkirby/composer-installer": true
+    }
+  }
+}

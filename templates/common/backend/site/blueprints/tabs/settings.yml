@@ -1,0 +1,11 @@
+label: Einstellungen
+icon: cog
+columns:
+  - width: 2/3
+    type: fields
+    fields:
+      hidden: true
+  - width: 1/3
+    sections:
+      images: sections/images
+      files: sections/files

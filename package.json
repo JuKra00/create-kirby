@@ -1,0 +1,22 @@
+{
+  "name": "create-kirby",
+  "version": "0.0.0",
+  "description": "Opinionated way to create a Kirby CMS app.",
+  "scripts": {
+    "release": "release-it"
+  },
+  "type": "module",
+  "keywords": ["kirby", "kirby cms"],
+  "author": "Justus Kraft <hallo@justuskraft.de>",
+  "repository": "git@github.com:JuKra00/create-kirby.git",
+  "license": "MIT",
+  "dependencies": {
+    "enquirer": "^2.3.6",
+    "kolorist": "^1.6.0",
+    "ora": "^6.1.2"
+  },
+  "devDependencies": {
+    "@release-it/conventional-changelog": "^5.1.0",
+    "release-it": "^15.5.0"
+  }
+}

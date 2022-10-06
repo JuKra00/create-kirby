@@ -1,0 +1,10 @@
+title: Datei
+
+accept:
+  extension: pdf, zip
+
+fields:
+  title:
+    label: Name
+    type: text
+    width: 1/2

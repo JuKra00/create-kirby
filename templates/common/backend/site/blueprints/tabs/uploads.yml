@@ -1,0 +1,5 @@
+icon: file
+label: Uploads
+sections:
+  imagefiles: sections/images
+  files: sections/files

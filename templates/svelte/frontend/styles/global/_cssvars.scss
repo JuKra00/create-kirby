@@ -1,0 +1,46 @@
+/**
+! Credits: https://dev.to/felipperegazio/css-custom-properties-vars-with-sass-scss-a-practical-architecture-strategy-1m88
+*/
+@use "sass:map";
+
+$_cssvars: ();
+$prefix: null;
+$root: ":root";
+
+/**
+* Generate multiple css vars on certain element
+*/
+@mixin cssvars($css_variables, $prefix: $prefix, $root: $root) {
+  $_cssvars: map.merge($_cssvars, $css_variables) !global;
+  #{$root} {
+    @each $name, $value in $css_variables {
+      @if $prefix {
+        --#{$prefix}-#{$name}: #{$value};
+      } @else {
+        --#{$name}: #{$value};
+      }
+    }
+  }
+}
+
+/**
+* Get CSS Variable with prefix
+*/
+@function cssvar($name, $prefix: $prefix) {
+  @if $prefix {
+    @return var(--#{$prefix}-#{$name});
+  } @else {
+    @return var(--#{$name});
+  }
+}
+
+/**
+* Set CSS Variable with prefix
+*/
+@mixin cssvar($name, $value: "", $prefix: $prefix) {
+  @if $prefix {
+    --#{$prefix}-#{$name}: #{$value};
+  } @else {
+    --#{$name}: #{$value};
+  }
+}

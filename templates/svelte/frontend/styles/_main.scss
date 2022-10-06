@@ -1,0 +1,7 @@
+main {
+  display: grid;
+  grid-template-columns: 5vw 1fr 5vw;
+  > * {
+    grid-column: 2/3;
+  }
+}

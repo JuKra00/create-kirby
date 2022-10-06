@@ -1,0 +1,9 @@
+title: Foto
+
+accept:
+  extension: jpg, jpeg, png, webp, svg, gif
+
+fields:
+  alt:
+    type: text
+    width: 1/2

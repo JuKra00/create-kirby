@@ -1,0 +1,28 @@
+title: Standard-Seite
+options: permissions/default
+status:
+  draft: Entwurf
+  unlisted: Veröffentlicht
+  listed: Veröffentlicht & im Menü
+tabs:
+  content:
+    icon: text
+    label: Inhalte
+    columns:
+      - width: 2/3
+        sections:
+          contentfields:
+            type: fields
+            fields:
+              hero: snippets/hero/default
+              maincontent:
+                extends: fields/blocks
+      - width: 1/3
+        sections:
+          pages:
+            headline: Unterseiten
+            type: pages
+            template:
+              - default
+              - thanks
+  uploads: tabs/uploads

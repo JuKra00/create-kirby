@@ -1,0 +1,6 @@
+label: Text
+type: writer
+inline: true
+nodes: false
+marks:
+  - bold
