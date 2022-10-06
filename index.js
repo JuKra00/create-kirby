@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // @ts-check
 import ora from 'ora'
+import minimist from 'minimist'
 import { readdirSync, renameSync } from 'fs'
 import { join } from 'path'
 import { bold, yellow, green, white, bgRed } from 'kolorist'
@@ -21,7 +22,7 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 import { createRequire } from 'module'
 const require = createRequire(import.meta.url)
-
+const argv = minimist(process.argv.slice(2), { string: ['_'] })
 const commonFilesDir = join(__dirname, 'templates/common')
 
 async function init() {
@@ -33,7 +34,7 @@ async function init() {
   /*--------------------------------------------------------------
   # Set Project dir
   --------------------------------------------------------------*/
-  let { root, name, domain } = await setProjectDir()
+  let { root, name, domain } = await setProjectDir(argv)
   if (!root) throw new Error('Aborted')
   /*--------------------------------------------------------------
   # Select frontend framework
@@ -116,7 +117,7 @@ async function init() {
   --------------------------------------------------------------*/
   if (cssFramework) {
     spinner.prefixText = green(`Installing css framework`)
-    await cssFrameworkInstall(cssFramework)
+    await cssFrameworkInstall(cssFramework, root)
     await sleep(1000)
   }
   /*--------------------------------------------------------------
@@ -131,19 +132,25 @@ async function init() {
   spinner.prefixText = ''
   spinner.succeed(bold(green('Everything ready. Happy coding!')))
   console.log('')
-  console.log(white('Link your domain in valet:'))
-  console.log(yellow(`cd ${name}/www; valet link --secure ${domain}; cd ../;`))
+  console.log(white('Link your domain in valet'))
+  console.log(white('Run inside www:'))
+  console.log(yellow(`valet link --secure ${domain}`))
   console.log('')
   console.log(
     white(`You also need to proxy vite if you haven't already done it.`)
   )
   console.log(yellow(`valet proxy --secure vite http://localhost:3000`))
   console.log('')
-  console.log(white(`Start development server:`))
+  console.log(white(`Start development server`))
+  console.log(white(`From your projects root:`))
   console.log(yellow(`pnpm dev`))
   console.log('')
 }
 
 init().catch((error) => {
-  console.log(bgRed(' ' + error.message + ' '))
+  if (error?.message) {
+    console.log(bgRed(' ' + error.message + ' '))
+  } else {
+    console.log(bgRed('Aborted'))
+  }
 })

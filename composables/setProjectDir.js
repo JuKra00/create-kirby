@@ -1,14 +1,22 @@
 import { existsSync, mkdirSync, readdirSync } from 'fs'
 import { join } from 'path'
 import { getValidPackageName } from './getValidPackageName.js'
+import { formatDir } from './formatDir.js'
 import enquirer from 'enquirer'
 const { prompt } = enquirer
+import { resolve, basename } from 'path'
 
 /**
  * Prompt user to select project directory
+ * @param {minimist.ParsedArgs} argv Arguments from commandline
  * @returns {Promise<{root: string, name: string, domain: string}>} Project dir root and name
  */
-export let setProjectDir = async () => {
+export let setProjectDir = async (argv) => {
+  const targetDir = formatDir(argv._[0])
+
+  const getProjectName = () =>
+    targetDir === '.' ? basename(resolve()) : targetDir
+
   /**
    * @type {{ projectName: string }}
    */
@@ -16,7 +24,7 @@ export let setProjectDir = async () => {
     type: 'input',
     name: 'projectName',
     message: `Project name:`,
-    initial: '',
+    initial: getProjectName(),
   })
   const validProjectName = await getValidPackageName(projectName)
 
@@ -29,7 +37,7 @@ export let setProjectDir = async () => {
 
   const validDomain = await getValidPackageName(domain)
 
-  const root = join(process.cwd(), validProjectName)
+  const root = join(process.cwd(), targetDir ?? validProjectName)
   if (!existsSync(root)) {
     mkdirSync(root, { recursive: true })
   } else {

@@ -6,14 +6,18 @@
     "release": "release-it"
   },
   "type": "module",
-  "keywords": ["kirby", "kirby cms"],
+  "keywords": [
+    "kirby",
+    "kirby cms"
+  ],
   "author": "Justus Kraft <hallo@justuskraft.de>",
   "repository": "git@github.com:JuKra00/create-kirby.git",
   "license": "MIT",
   "dependencies": {
     "enquirer": "^2.3.6",
     "kolorist": "^1.6.0",
-    "ora": "^6.1.2"
+    "ora": "^6.1.2",
+    "minimist": "^1.2.6"
   },
   "devDependencies": {
     "@release-it/conventional-changelog": "^5.1.0",
