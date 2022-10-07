@@ -27,8 +27,8 @@ const postCssViteDevCss = (): PostCssPlugin => ({
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd());
   return {
-    root: ".",
-    base: "/",
+    root: "frontend",
+    base: mode === "development" ? "/frontend/" : "/",
 
     build: {
       outDir: resolve(__dirname, "www"),

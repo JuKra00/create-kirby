@@ -18,7 +18,7 @@ return [
   ],
   'debug' => false,
   "jukra00.simple-vite" => [
-    "main" => "frontend/index.ts",
+    "main" => "index.ts",
     "dev" => false,
   ],
   "languages" => true,
