@@ -7,6 +7,8 @@
 # Frontend
 node_modules/
 /www/frontend/
+/www/assets/
+/www/manifest.json
 
 # Kirby
 .lock
@@ -24,6 +26,8 @@ backend/site/config/.license
 !/www/media/index.html
 
 # Volumes
+# /volumes/content/*
+# !/volumes/content/.gitkeep
 /volumes/accounts/*
 !/volumes/accounts/.gitkeep
 /volumes/logs/*
