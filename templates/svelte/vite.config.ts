@@ -17,9 +17,13 @@ const postCssViteDevCss = (): PostCssPlugin => ({
   OnceExit(root, { result }) {
     // @ts-expect-error: property unknown
     if (result.opts.env !== "production") {
+      const regex = root.source?.input.file?.match(
+        new RegExp(/([a-z]*)(.scss)$/)
+      );
+      const name = regex ? regex[1] : "index";
       const outDir = resolve(__dirname, "www/assets/dev");
       mkdirSync(outDir, { recursive: true });
-      writeFileSync(resolve(outDir, "index.css"), root.toResult().css);
+      writeFileSync(resolve(outDir, `${name}.css`), root.toResult().css);
     }
   },
 });
